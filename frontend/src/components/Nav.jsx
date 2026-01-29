@@ -10,7 +10,7 @@ import { setSearchItems, setUserData } from '../redux/userSlice';
 import { FaPlus } from "react-icons/fa6";
 import { TbReceipt2 } from "react-icons/tb";
 import { useNavigate } from 'react-router-dom';
-function Nav() {
+function Navbar() {
     const { userData, currentCity, cartItems } = useSelector(state => state.user)
     const { myShopData } = useSelector(state => state.owner)
     const [showInfo, setShowInfo] = useState(false)
@@ -127,4 +127,4 @@ function Nav() {
 }
 
 
-export default Nav
+export default Navbar

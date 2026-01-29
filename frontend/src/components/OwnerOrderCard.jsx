@@ -5,7 +5,7 @@ import { serverUrl } from '../App';
 import { useDispatch } from 'react-redux';
 import { updateOrderStatus } from '../redux/userSlice';
 import { useState } from 'react';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 function OwnerOrderCard({ data }) {
     const [availableBoys,setAvailableBoys]=useState([])
 const dispatch=useDispatch()
