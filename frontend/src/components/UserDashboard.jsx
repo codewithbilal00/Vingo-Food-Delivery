@@ -6,7 +6,7 @@ import CategoryCard from './CategoryCard'
 import { FaCircleChevronLeft } from "react-icons/fa6";
 import { FaCircleChevronRight } from "react-icons/fa6";
 import { useSelector } from 'react-redux';
-import FoodCard from './FoodCard';
+import FoodCard from './FoodCard'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { serverUrl } from '../App';
