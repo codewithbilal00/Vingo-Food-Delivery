@@ -51,18 +51,37 @@ export const sendOtpMail=async (to,otp) => {
 //     })
 // }
 
+// export const sendDeliveryOtpMail = async (user, otp) => {
+//   try {
+//     const info = await transporter.sendMail({
+//       from: `"Vingo Delivery" <${process.env.EMAIL}>`,
+//       to: user.email,
+//       subject: "Delivery OTP",
+//       html: `<p>Your OTP for delivery is <b>${otp}</b>. It expires in 5 minutes.</p>`,
+//     });
+
+//     console.log("DELIVERY OTP SENT:", info.messageId);
+//   } catch (error) {
+//     console.error("DELIVERY OTP FAILED ❌", error);
+//   }
+// };
 export const sendDeliveryOtpMail = async (user, otp) => {
   try {
     const info = await transporter.sendMail({
       from: `"Vingo Delivery" <${process.env.EMAIL}>`,
       to: user.email,
-      subject: "Delivery OTP",
-      html: `<p>Your OTP for delivery is <b>${otp}</b>. It expires in 5 minutes.</p>`,
+      subject: "Your delivery code",
+      text: `Your delivery code is ${otp}. It expires in 5 minutes.`,
+      html: `
+        <p>Hello ${user.fullName || ""},</p>
+        <p>Your delivery code is <b>${otp}</b>.</p>
+        <p>This code will expire in 5 minutes.</p>
+      `,
     });
 
-    console.log("DELIVERY OTP SENT:", info.messageId);
+    console.log("MAIL SENT:", info.messageId);
   } catch (error) {
-    console.error("DELIVERY OTP FAILED ❌", error);
+    console.error("MAIL FAILED:", error);
   }
 };
 
