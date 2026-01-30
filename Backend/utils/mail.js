@@ -25,13 +25,21 @@ const transporter = nodemailer.createTransport({
 });
 
 export const sendOtpMail=async (to,otp) => {
-    await transporter.sendMail({
-        from:process.env.EMAIL,
-        to,
-        subject:"Reset Your Password",
-        html:`<p>Your OTP for password reset is <b>${otp}</b>. It expires in 5 minutes.</p>`
-    })
-}
+//     await transporter.sendMail({
+//         from:process.env.EMAIL,
+//         to,
+//         subject:"Reset Your Password",
+//         html:`<p>Your OTP for password reset is <b>${otp}</b>. It expires in 5 minutes.</p>`
+//     })
+// }
+  await transporter.sendMail({
+  from: `"Vingo Delivery" <${process.env.EMAIL}>`,
+  to: user.email,
+  subject: "Delivery OTP",
+  text: `Your delivery OTP is ${otp}. It expires in 5 minutes.`,
+  html: `<p>Your OTP for delivery is <b>${otp}</b>. It expires in 5 minutes.</p>`
+});
+
 
 
 // export const sendDeliveryOtpMail=async (user,otp) => {
